@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+    <head>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="file.js"></script>
+        <script>
+
+            $(document).ready(function () {
+                BuildTable();
+
+                var isMobile = {
+                    Android: function () {
+                        return navigator.userAgent.match(/Android/i);
+                    },
+                    BlackBerry: function () {
+                        return navigator.userAgent.match(/BlackBerry/i);
+                    },
+                    iOS: function () {
+                        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+                    },
+                    Opera: function () {
+                        return navigator.userAgent.match(/Opera Mini/i);
+                    },
+                    Windows: function () {
+                        return navigator.userAgent.match(/IEMobile/i);
+                    },
+                    any: function () {
+                        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+                    }
+                };
+
+                $("#mybutton").on("click", function () {
+
+                    alert("ffdg");
+                    if (isMobile.any()) {
+
+                        var text = $(this).attr("data-text");
+                        var url = $(this).attr("data-link");
+                        var message = "hi how are you";
+                        var whatsapp_url = "https://api.whatsapp.com/send?phone=919940471903&text=" + message;
+                        window.location.href = whatsapp_url;
+                    } else {
+                        alert("This option is only available on mobile devices.");
+                    }
+
+                });
+            });
+
+
+            function addproduct(ctrl) {
+                var ctrlval = ctrl.id.split('_');
+                var ctrlname = "#Qty_" + ctrlval[1];
+                var ctrltotal = "#Total_" + ctrlval[1];
+                var textvalue = $(ctrlname).val();
+                if (textvalue == "") {
+                    $(ctrlname).val("1");
+                    calculateQuantity(ctrl);
+                }
+                else {
+                    var textvalue1 = $(ctrlname).val();
+                    $(ctrlname).val(++textvalue1);
+                    calculateQuantity(ctrl);
+                }
+
+            }
+            function minusproduct(ctrl) {
+                var ctrlval = ctrl.id.split('_');
+                var ctrlname = "#Qty_" + ctrlval[1];
+                var textvalue = $(ctrlname).val();
+                if (textvalue == "" || textvalue == 0) {
+                    $(ctrlname).val("");
+                }
+                else {
+                    var textvalue1 = $(ctrlname).val();
+                    $(ctrlname).val(--textvalue1);
+                    calculateQuantity(ctrl);
+                }
+
+            }
+
+            function calculateQuantity(ctrl) {
+                var ctrlval = ctrl.id.split('_');
+                var ctrlQty = "#Qty_" + ctrlval[1];
+                var ctrlprice = "#Price_" + ctrlval[1];
+                var ctrltotal = "#Total_" + ctrlval[1];
+                $(ctrltotal).text($(ctrlprice).text() * $(ctrlQty).val());
+                $(ctrltotal).each(function () {
+                    $(this).text(parseFloat($(this).text()).toFixed(2));
+                });
+            }
+
+
+            function BuildTable() {
+
+
+
+                for (var i = 0; i <= myObj.length - 1; i++) {
+                    var str = "<tr class='alt'><td>" + myObj[i].Name + "</td><td><div id='Price_" + i + "'>" + myObj[i].Price + "</div>" +
+                    "<span class='plus button' id='sp_" + i + "' onclick='addproduct(this);' >+</span>" +
+                    "<input type='text' name='qty' id='Qty_" + i + "' maxlength='2'/>" +
+                    "<span class='min button' id='ssp_" + i + "'  onclick='minusproduct(this);'>-</span>" +
+                    "<br /><div id='Total_" + i + "'></div></td></tr>'";
+                    $('#maintable').append(str);
+
+                }
+
+
+            }
+
+
+            function SetGridData(url, DeletecommandName, ColumnNamePrefix) {
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    success: function (json) {
+                        var tr;
+                        var div = "";
+
+                        for (var i = 0; i < json.d.length; i++) {
+
+                            div = div + "<div><img src='image/" + json.d[i].ImageName + "' /></div>";
+                            //   tr = $("<tr style='background-color:#ffff;' id=DR" + ColumnNamePrefix + i + ">");
+                            //   tr.append("<td>" + json.d[i].Name + "</td>");
+                            //   tr.append("<td>" + json.d[i].ID + "</td>");
+                            ////   tr.append("<td>" + json.d[i].Relationship + "</td>");
+                            //  // tr.append("<td>" + json.d[i].Status + "</td>");
+                            //   tr.append("<td align='center'><img src='../Images/Delete_Icon_Grid.jpg' style='cursor:hand;'  align='center' id='deleteRow' onclick='" + DeletecommandName + "(" + i + ");'  /></td>");
+                            //   $('#Dependanttable').append(tr);
+                        }
+                        $('#container1').append(div);
+                    },
+
+                    error: function () {
+                        //   throw new Error('AJAX request error occurred.');
+                        alert(json);
+                    }
+
+                });
+            }
+
+    </script>
+    </head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+
+<div class="w3-container w3-teal">
+<h1>Summer Holiday</h1>
+</div>
+
+<div class="w3-content">
+
+<div class="w3-row w3-margin">
+<div class="w3-twothird w3-container">
+        <table id="maintable" class="w3-table">
+<thead><tr><th>Product</th><th>Price</th></tr></thead>
+<tbody>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+
+</div>
+</div>
+</body>
+</html>
