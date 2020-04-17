@@ -56,7 +56,7 @@ background:black;
                     var text = $(this).attr("data-text");
                     var url = $(this).attr("data-link");
                     var message = encodeURIComponent(text) + " - " + encodeURIComponent(url);
-                    var whatsapp_url = "whatsapp://send?text=" + message;
+                    var whatsapp_url = "https://api.whatsapp.com/send?phone=9940471903&text=" + message;
                     window.location.href = whatsapp_url;
                 } else {
                     alert("This option is only available on mobile devices.");
