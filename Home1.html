@@ -38,13 +38,13 @@
                     else if ($("#txtName").val().length > 0 && $("#txtMobile").val().length > 0 && $("#txtAddress").val().length > 0) {
     
                                 var List = "";
-                                List += "Name:" + $("#txtName").val() + "\n";
-                                List += "Mobile:" + $("#txtMobile").val() + "\n";
-                                List += "Address:" + $("#txtAddress").val() + "\n";
+                                List += "Name:" + $("#txtName").val() + "\n\n";
+                                List += "Mobile:" + $("#txtMobile").val() + "\n\n";
+                                List += "Address:" + $("#txtAddress").val() + "\n\n";
 
                                 for (var i = 0; i <= myObj.length - 1; i++) {
                                     if ($("#Qty_" + i).val().length > 0) {
-                                        List += myObj[i].Name + "  " + $("#Price_" + i).text() + "  " + $("#Qty_" + i).val() + " " + $("#Total_" + i).text() + "\n";
+                                        List += myObj[i].Name + "  " + $("#Price_" + i).text() + "  " + $("#Qty_" + i).val() + " " + $("#Total_" + i).text() + "\n\n";
                                     }
                                 }
                                 List += "GrandTotal" + $("#GrandTotal").text();
