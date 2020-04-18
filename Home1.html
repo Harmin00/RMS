@@ -96,11 +96,19 @@
 
 
                 for (var i = 0; i <= myObj.length - 1; i++) {
-                    var str = "<tr class='alt'><td>" + myObj[i].Name + "</td><td><div id='Price_" + i + "'>" + myObj[i].Price + "</div>" +
-                    "<span class='plus button' id='sp_" + i + "' onclick='addproduct(this);' >+</span>" +
-                    "<input type='text' name='qty' id='Qty_" + i + "' maxlength='2'/>" +
-                    "<span class='min button' id='ssp_" + i + "'  onclick='minusproduct(this);'>-</span>" +
-                    "<br /><div id='Total_" + i + "'></div></td></tr>'";
+                    //var str = "<tr class='alt'><td>" + myObj[i].Name + "</td><td><div id='Price_" + i + "'>" + myObj[i].Price + "</div>" +
+                    //"<span class='plus button' id='sp_" + i + "' onclick='addproduct(this);' >+</span>" +
+                    //"<input type='text' name='qty' id='Qty_" + i + "' maxlength='2'/>" +
+                    //"<span class='min button' id='ssp_" + i + "'  onclick='minusproduct(this);'>-</span>" +
+                    //"<br /><div id='Total_" + i + "'></div></td></tr>'";
+
+                    var str = "<tr class='alt'><td>" + myObj[i].Name + "</td><td><div id='Price_" + i + "'>" + myObj[i].Price + "</div></td><td>" +
+"<span class='plus button' id='sp_" + i + "' onclick='addproduct(this);' >+</span>" +
+"<input type='text' name='qty' id='Qty_" + i + "' maxlength='2'/>" +
+"<span class='min button' id='ssp_" + i + "'  onclick='minusproduct(this);'>-</span>" +
+"</td><td><div id='Total_" + i + "'></div></td></tr>'";
+
+
                     $('#maintable').append(str);
 
                 }
@@ -179,7 +187,7 @@ background:black;
 <div class="w3-row w3-margin">
 <div class="w3-twothird w3-container">
         <table id="maintable" class="w3-table">
-<thead><tr><th>Product</th><th>Price</th></tr></thead>
+<thead><tr><th>Product</th><th>Price</th><th>count</th><th>Total</th></tr></thead>
 <tbody>
 </tbody>
 </table>
