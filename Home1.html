@@ -50,7 +50,8 @@
                                 List += "GrandTotal" + $("#GrandTotal").text();
 alert(List);
                                 if (isMobile.any()) {
-                                    var whatsapp_url = "https://api.whatsapp.com/send?phone=917358862009&text=" + List;
+                                      var whatsappMessage = window.encodeURIComponent(List)
+                                    var whatsapp_url = "https://api.whatsapp.com/send?phone=917358862009&text=" + whatsappMessage;
                                     window.location.href = whatsapp_url;
                                 }
                                 else {
