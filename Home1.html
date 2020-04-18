@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
-    <head>
+<title>RMN Store</title>
+    <Head>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="file.js"></script>
         <script>
@@ -35,32 +35,30 @@
                     if ($("#txtName").val().length == 0 || $("#txtMobile").val().length == 0 || $("#txtAddress").val().length == 0) {
                         alert("Please Provide all Information");
                     }
-                    else {
-                        var List = "";
-                        List += "Name:" + $("#txtName").val() + "\n";
-                        List += "Mobile:" + $("#txtMobile").val() + "\n";
-                        List += "Address:" + $("#txtAddress").val() + "\n";
+                    else if ($("#txtName").val().length > 0 && $("#txtMobile").val().length > 0 && $("#txtAddress").val().length > 0) {
+    
+                                var List = "";
+                                List += "Name:" + $("#txtName").val() + "\n";
+                                List += "Mobile:" + $("#txtMobile").val() + "\n";
+                                List += "Address:" + $("#txtAddress").val() + "\n";
 
-                        for (var i = 0; i <= myObj.length - 1; i++) {
-                            if ($("#Qty_" + i).val().length > 0) {
-                                List += myObj[i].Name + "  " + $("#Price_" + i).text() + "  " + $("#Qty_" + i).val() + " " + $("#Total_" + i).text() + "\n";
-                            }
-                        }
-                        List += "GrandTotal" + $("#GrandTotal").text();
-List="hi how are you";
-                        if (isMobile.any()) {
-                            alert("whatsapp");
-                            var text = $(this).attr("data-text");
-                            var url = $(this).attr("data-link");
-                            var whatsapp_url = "https://api.whatsapp.com/send?phone=917358862009&text=" + List;
-                            window.location.href = whatsapp_url;
-                        } else {
-                            alert("This option is only available on mobile devices.");
-                        }
+                                for (var i = 0; i <= myObj.length - 1; i++) {
+                                    if ($("#Qty_" + i).val().length > 0) {
+                                        List += myObj[i].Name + "  " + $("#Price_" + i).text() + "  " + $("#Qty_" + i).val() + " " + $("#Total_" + i).text() + "\n";
+                                    }
+                                }
+                                List += "GrandTotal" + $("#GrandTotal").text();
 
+                                if (isMobile.any()) {
+                                    var whatsapp_url = "https://api.whatsapp.com/send?phone=917358862009&text=" + List;
+                                    window.location.href = whatsapp_url;
+                                }
+                                else {
+                                    alert("This option is only available on mobile devices.");
+                                }
 
                     }
-        
+
 
                 });
             });
@@ -115,7 +113,7 @@ List="hi how are you";
                 var total = 0;
                 for (var i = 0; i <= myObj.length - 1; i++) {
                     if ($("#Total_" + i).text() != "") {
-                        total = total + parseInt($("#Total_" + i).text());
+                        total = total + parseFloat($("#Total_" + i).text());
                         //alert(total) + "--i value "+ i;
                     }
                  }
@@ -130,22 +128,15 @@ List="hi how are you";
             function OrderNow()
             {
                 var tot = parseFloat($("#GrandTotal").text());
-     
-                if (tot > 0) {
-                   document.getElementById('id01').style.display = 'block';
-                    
-                }
-                else {
-                    alert("Nothing To Order..");
-                }
-            }
-
-
+                    if (tot > 0) {
+                        document.getElementById('id01').style.display = 'block';
+                    }
+                    else {
+                        alert("Nothing To Order..");
+                    }
+              }
 
             function BuildTable() {
-
-
-
                 for (var i = 0; i <= myObj.length - 1; i++) {
                    var str = "<tr class='alt'><td>" + myObj[i].Name + "</td><td><div id='Price_" + i + "'>" + Number(myObj[i].Price).toFixed(2) + "</div></td><td>" +
                             "<span class='plus button' id='sp_" + i + "' onclick='addproduct(this);' >+</span>" +
@@ -156,34 +147,40 @@ List="hi how are you";
                 }
             }
 
-            function PlaceOrder() {
+            //function PlaceOrder() {
+            //    if ($("#txtName").val().length == 0 || $("#txtMobile").val().length == 0 || $("#txtAddress").val().length == 0) {
+            //        alert("Please Provide all Information");
+            //    }
+            //    else {
+       
+            //        var List = "";
+            //        List += "Name:" + $("#txtName").val() + "\n";
+            //        List += "Mobile:" + $("#txtMobile").val() + "\n";
+            //        List += "Address:" + $("#txtAddress").val() + "\n";
 
-                if ($("#txtName").val().length == 0 || $("#txtMobile").val().length == 0 || $("#txtAddress").val().length == 0) {
-                    alert("Please Provide all Information");
-                }
-                else {
-                    var List = "";
-                    List += "Name:" + $("#txtName").val() + "\n";
-                    List += "Mobile:" + $("#txtMobile").val() + "\n";
-                    List += "Address:" + $("#txtAddress").val() + "\n";
-
-                    for (var i = 0; i <= myObj.length - 1; i++) {
-                        if ($("#Qty_" + i).val().length > 0) {
-                            List += myObj[i].Name + "  " + $("#Price_" + i).text() + "  " + $("#Qty_" + i).val() + " " + $("#Total_" + i).text() + "\n";
-                        }
-                    }
-                    List += "GrandTotal" + $("#GrandTotal").text();
+            //        for (var i = 0; i <= myObj.length - 1; i++) {
+            //            if ($("#Qty_" + i).val().length > 0) {
+            //                List += myObj[i].Name + "  " + $("#Price_" + i).text() + "  " + $("#Qty_" + i).val() + " " + $("#Total_" + i).text() + "\n";
+            //            }
+            //        }
+            //        List += "GrandTotal" + $("#GrandTotal").text();
+            //        sendmessage(List);
                 
-                   // send(List);
-                
-                }
+            //    }
 
                
-            }
+            //}
 
-            function send(message) {
-   
-            }
+            //function sendmessage(message) {
+            //    alert(isMobile.any());
+            //            if (isMobile.any()) {
+            //                var whatsapp_url = "https://api.whatsapp.com/send?phone=917358862009&text=" + message;
+            //                window.location.href = whatsapp_url;
+            //            }
+            //            else {
+            //                alert("This option is only available on mobile devices.");
+            //            }
+            //}
 
     </script>
            <style>
@@ -207,14 +204,14 @@ List="hi how are you";
 background:black;
 }
  </style>
-    </head>
+    </Head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <body>
 
 <div class="w3-container w3-teal">
-<h1>Rahaman Stores</h1>
+<h1>RMN Store</h1>
 </div>
   <div class="w3-panel w3-pale-green w3-bottombar w3-border-green w3-border w3-auto">
     <p>Free Home Delivery 9.00 AM - 8.00 PM</p>
@@ -237,7 +234,7 @@ background:black;
 
 </div>
 </div>
- <button onclick="OrderNow();" class="w3-button w3-black" style="float:right;">OrderNow</button>
+ <button  onclick="OrderNow();" class="w3-button w3-black"  style="float:right;" >OrderNow</button>
     <div class="w3-container w3-teal">
         <div class="w3-row">
   <div class="w3-col s6  w3-center"><h2><p>Total:</p></h2></div>
@@ -248,7 +245,7 @@ background:black;
     <!-- The Modal -->
 <div id="id01" class="w3-modal">
   <div class="w3-modal-content">
-      <form class="w3-container">
+      <div class="w3-container">
       <span onclick="document.getElementById('id01').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
 <label>Name</label>
@@ -258,11 +255,11 @@ background:black;
 <label>Address</label>
 <input id="txtAddress" class="w3-input" type="text">
 <div>
-    <div style="float:right;"><button id="mybutton" class="w3-button w3-teal">PlaceOrder</button></div>
+    <div style="float:right;"><button id="mybutton"  class="w3-button w3-teal">Proceed</button></div>
 </div>
                             
 
-</form>
+</div>
   </div>
 </div>
 </body>
