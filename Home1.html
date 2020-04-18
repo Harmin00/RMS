@@ -56,11 +56,13 @@
                 if (textvalue == "") {
                     $(ctrlname).val("1");
                     calculateQuantity(ctrl);
+                    GrandTotal();
                 }
                 else {
                     var textvalue1 = $(ctrlname).val();
                     $(ctrlname).val(++textvalue1);
                     calculateQuantity(ctrl);
+                    GrandTotal();
                 }
 
             }
@@ -75,6 +77,7 @@
                     var textvalue1 = $(ctrlname).val();
                     $(ctrlname).val(--textvalue1);
                     calculateQuantity(ctrl);
+                    GrandTotal();
                 }
 
             }
@@ -90,15 +93,29 @@
                 });
             }
 
+            function GrandTotal() {
+                var total = 0;
+                for (var i = 0; i <= myObj.length - 1; i++) {
+                    if ($("#Total_" + i).text() != "") {
+                        total = total + parseInt($("#Total_" + i).text());
+                        //alert(total) + "--i value "+ i;
+                    }
+                 }
+                $("#GrandTotal").text("");
+                $("#GrandTotal").text(total);
+                $("#GrandTotal").each(function () {
+                    $(this).text(parseFloat($(this).text()).toFixed(2));
+                });
+            }
 
             function BuildTable() {
 
 
 
                 for (var i = 0; i <= myObj.length - 1; i++) {
-                   var str = "<tr class='alt'><td>" + myObj[i].Name + "</td><td><div id='Price_" + i + "'>" + myObj[i].Price + "</div></td><td>" +
+                   var str = "<tr class='alt'><td>" + myObj[i].Name + "</td><td><div id='Price_" + i + "'>" + Number(myObj[i].Price).toFixed(2) + "</div></td><td>" +
                             "<span class='plus button' id='sp_" + i + "' onclick='addproduct(this);' >+</span>" +
-                            "<input type='text' name='qty' id='Qty_" + i + "' maxlength='2'/>" +
+                            "<input class='qtybox' type='text' name='qty' id='Qty_" + i + "' maxlength='2' readonly/>" +
                             "<span class='min button' id='ssp_" + i + "'  onclick='minusproduct(this);'>-</span>" +
                             "</td><td><div id='Total_" + i + "'></div></td></tr>'";
                     $('#maintable').append(str);
@@ -109,7 +126,7 @@
 .button {
  padding:5px; cursor:pointer; background:grey; color:white; width:25px; height:25px; text-align:center; display:inline-block;
 }
-        input[type=text] {
+        .qtybox{
             width:20px;
               padding: 0;
             padding-top: 5px;
@@ -135,7 +152,9 @@ background:black;
 <div class="w3-container w3-teal">
 <h1>Rahaman Stores</h1>
 </div>
-
+  <div class="w3-panel w3-pale-green w3-bottombar w3-border-green w3-border w3-auto">
+    <p>Free Home Delivery 9.00 AM - 8.00 PM</p>
+  </div>
 <div class="w3-content">
 
 <div class="w3-row w3-margin">
@@ -154,12 +173,33 @@ background:black;
 
 </div>
 </div>
+ <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" style="float:right;">OrderNow</button>
     <div class="w3-container w3-teal">
         <div class="w3-row">
   <div class="w3-col s6  w3-center"><h2><p>Total:</p></h2></div>
-  <div class="w3-col s6  w3-center"><h2><p id="GrandTotal">86.00</p></h2></div>
+  <div class="w3-col s6  w3-center"><h2><p id="GrandTotal">00.00</p></h2></div>
 </div>
  
+</div>
+    <!-- The Modal -->
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content">
+      <form class="w3-container">
+      <span onclick="document.getElementById('id01').style.display='none'"
+      class="w3-button w3-display-topright">&times;</span>
+<label>Name</label>
+<input class="w3-input" type="text">
+<label>MobileNumber</label>
+<input class="w3-input" type="text">
+<label>Address</label>
+<input class="w3-input" type="text">
+<div>
+    <div style="float:right;"><button class="w3-button w3-teal">PlaceOrder</button></div>
+</div>
+                            
+
+</form>
+  </div>
 </div>
 </body>
 </html>
