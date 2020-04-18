@@ -32,17 +32,35 @@
 
                 $("#mybutton").on("click", function () {
 
-                    alert("ffdg");
-                    if (isMobile.any()) {
-
-                        var text = $(this).attr("data-text");
-                        var url = $(this).attr("data-link");
-                        var message = "hi how are you";
-                        var whatsapp_url = "https://api.whatsapp.com/send?phone=919940471903&text=" + message;
-                        window.location.href = whatsapp_url;
-                    } else {
-                        alert("This option is only available on mobile devices.");
+                    if ($("#txtName").val().length == 0 || $("#txtMobile").val().length == 0 || $("#txtAddress").val().length == 0) {
+                        alert("Please Provide all Information");
                     }
+                    else {
+                        var List = "";
+                        List += "Name:" + $("#txtName").val() + "\n";
+                        List += "Mobile:" + $("#txtMobile").val() + "\n";
+                        List += "Address:" + $("#txtAddress").val() + "\n";
+
+                        for (var i = 0; i <= myObj.length - 1; i++) {
+                            if ($("#Qty_" + i).val().length > 0) {
+                                List += myObj[i].Name + "  " + $("#Price_" + i).text() + "  " + $("#Qty_" + i).val() + " " + $("#Total_" + i).text() + "\n";
+                            }
+                        }
+                        List += "GrandTotal" + $("#GrandTotal").text();
+
+                        if (isMobile.any()) {
+
+                            var text = $(this).attr("data-text");
+                            var url = $(this).attr("data-link");
+                            var whatsapp_url = "https://api.whatsapp.com/send?phone=919940471903&text=" + List;
+                            window.location.href = whatsapp_url;
+                        } else {
+                            alert("This option is only available on mobile devices.");
+                        }
+
+
+                    }
+        
 
                 });
             });
@@ -108,6 +126,22 @@
                 });
             }
 
+
+            function OrderNow()
+            {
+                var tot = parseFloat($("#GrandTotal").text());
+     
+                if (tot > 0) {
+                    document.getElementById('id01').style.display = 'block';
+                    
+                }
+                else {
+                    alert("Nothing To Order..");
+                }
+            }
+
+
+
             function BuildTable() {
 
 
@@ -121,6 +155,36 @@
                     $('#maintable').append(str);
                 }
             }
+
+            function PlaceOrder() {
+
+                if ($("#txtName").val().length == 0 || $("#txtMobile").val().length == 0 || $("#txtAddress").val().length == 0) {
+                    alert("Please Provide all Information");
+                }
+                else {
+                    var List = "";
+                    List += "Name:" + $("#txtName").val() + "\n";
+                    List += "Mobile:" + $("#txtMobile").val() + "\n";
+                    List += "Address:" + $("#txtAddress").val() + "\n";
+
+                    for (var i = 0; i <= myObj.length - 1; i++) {
+                        if ($("#Qty_" + i).val().length > 0) {
+                            List += myObj[i].Name + "  " + $("#Price_" + i).text() + "  " + $("#Qty_" + i).val() + " " + $("#Total_" + i).text() + "\n";
+                        }
+                    }
+                    List += "GrandTotal" + $("#GrandTotal").text();
+                
+                   // send(List);
+                
+                }
+
+               
+            }
+
+            function send(message) {
+   
+            }
+
     </script>
            <style>
 .button {
@@ -173,7 +237,7 @@ background:black;
 
 </div>
 </div>
- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" style="float:right;">OrderNow</button>
+ <button onclick="OrderNow();" class="w3-button w3-black" style="float:right;">OrderNow</button>
     <div class="w3-container w3-teal">
         <div class="w3-row">
   <div class="w3-col s6  w3-center"><h2><p>Total:</p></h2></div>
@@ -188,13 +252,13 @@ background:black;
       <span onclick="document.getElementById('id01').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
 <label>Name</label>
-<input class="w3-input" type="text">
+<input id="txtName" class="w3-input" type="text">
 <label>MobileNumber</label>
-<input class="w3-input" type="text">
+<input id="txtMobile" class="w3-input" type="text">
 <label>Address</label>
-<input class="w3-input" type="text">
+<input id="txtAddress" class="w3-input" type="text">
 <div>
-    <div style="float:right;"><button class="w3-button w3-teal">PlaceOrder</button></div>
+    <div style="float:right;"><button id="mybutton" class="w3-button w3-teal">PlaceOrder</button></div>
 </div>
                             
 
