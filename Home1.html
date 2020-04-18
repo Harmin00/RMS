@@ -96,60 +96,14 @@
 
 
                 for (var i = 0; i <= myObj.length - 1; i++) {
-                    //var str = "<tr class='alt'><td>" + myObj[i].Name + "</td><td><div id='Price_" + i + "'>" + myObj[i].Price + "</div>" +
-                    //"<span class='plus button' id='sp_" + i + "' onclick='addproduct(this);' >+</span>" +
-                    //"<input type='text' name='qty' id='Qty_" + i + "' maxlength='2'/>" +
-                    //"<span class='min button' id='ssp_" + i + "'  onclick='minusproduct(this);'>-</span>" +
-                    //"<br /><div id='Total_" + i + "'></div></td></tr>'";
-
-                    var str = "<tr class='alt'><td>" + myObj[i].Name + "</td><td><div id='Price_" + i + "'>" + myObj[i].Price + "</div></td><td>" +
-"<span class='plus button' id='sp_" + i + "' onclick='addproduct(this);' >+</span>" +
-"<input type='text' name='qty' id='Qty_" + i + "' maxlength='2'/>" +
-"<span class='min button' id='ssp_" + i + "'  onclick='minusproduct(this);'>-</span>" +
-"</td><td><div id='Total_" + i + "'></div></td></tr>'";
-
-
+                   var str = "<tr class='alt'><td>" + myObj[i].Name + "</td><td><div id='Price_" + i + "'>" + myObj[i].Price + "</div></td><td>" +
+                            "<span class='plus button' id='sp_" + i + "' onclick='addproduct(this);' >+</span>" +
+                            "<input type='text' name='qty' id='Qty_" + i + "' maxlength='2'/>" +
+                            "<span class='min button' id='ssp_" + i + "'  onclick='minusproduct(this);'>-</span>" +
+                            "</td><td><div id='Total_" + i + "'></div></td></tr>'";
                     $('#maintable').append(str);
-
                 }
-
-
             }
-
-
-            function SetGridData(url, DeletecommandName, ColumnNamePrefix) {
-
-                $.ajax({
-                    type: 'POST',
-                    url: url,
-                    contentType: 'application/json; charset=utf-8',
-                    dataType: 'json',
-                    success: function (json) {
-                        var tr;
-                        var div = "";
-
-                        for (var i = 0; i < json.d.length; i++) {
-
-                            div = div + "<div><img src='image/" + json.d[i].ImageName + "' /></div>";
-                            //   tr = $("<tr style='background-color:#ffff;' id=DR" + ColumnNamePrefix + i + ">");
-                            //   tr.append("<td>" + json.d[i].Name + "</td>");
-                            //   tr.append("<td>" + json.d[i].ID + "</td>");
-                            ////   tr.append("<td>" + json.d[i].Relationship + "</td>");
-                            //  // tr.append("<td>" + json.d[i].Status + "</td>");
-                            //   tr.append("<td align='center'><img src='../Images/Delete_Icon_Grid.jpg' style='cursor:hand;'  align='center' id='deleteRow' onclick='" + DeletecommandName + "(" + i + ");'  /></td>");
-                            //   $('#Dependanttable').append(tr);
-                        }
-                        $('#container1').append(div);
-                    },
-
-                    error: function () {
-                        //   throw new Error('AJAX request error occurred.');
-                        alert(json);
-                    }
-
-                });
-            }
-
     </script>
            <style>
 .button {
@@ -199,6 +153,13 @@ background:black;
 
 
 </div>
+</div>
+    <div class="w3-container w3-teal">
+        <div class="w3-row">
+  <div class="w3-col s6  w3-center"><h2><p>Total:</p></h2></div>
+  <div class="w3-col s6  w3-center"><h2><p id="GrandTotal">86.00</p></h2></div>
+</div>
+ 
 </div>
 </body>
 </html>
