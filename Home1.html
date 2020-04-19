@@ -71,7 +71,6 @@ myObj = [
         <script>
             $(document).ready(function () {
                 BuildTable();
-                alert(myObj.length);
                 var isMobile = {
                     Android: function () {
                         return navigator.userAgent.match(/Android/i);
@@ -111,7 +110,6 @@ myObj = [
                             }
                         }
                         List += "GrandTotal" + $("#GrandTotal").text();
-                        alert(List);
                         if (isMobile.any()) {
                             var whatsappMessage = window.encodeURIComponent(List)
                             var whatsapp_url = "https://api.whatsapp.com/send?phone=917358862009&text=" + whatsappMessage;
