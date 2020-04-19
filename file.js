@@ -54,3 +54,4 @@
             { Name: "கோதுமை  100GM", Price: 12.00 },
             { Name: "துவரம் பருப்பு  100GM", Price: 68.00 }
             ];
+alert("file.js");
