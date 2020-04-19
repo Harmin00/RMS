@@ -113,6 +113,7 @@
             function GrandTotal() {
                 var total = 0;
                 for (var i = 0; i <= myObj.length - 1; i++) {
+                    alert(i);
                     if ($("#Total_" + i).text() != "") {
                         total = total + parseFloat($("#Total_" + i).text());
                         //alert(total) + "--i value "+ i;
