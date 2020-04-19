@@ -3,7 +3,7 @@
 <title>RMN Store</title>
     <Head>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="file1.js"></script>
+    <script src="file.js"></script>
         <script>
 
             $(document).ready(function () {
@@ -140,12 +140,12 @@
             }
 
             function BuildTable() {
-                var myObj, x;
+  /*              var myObj, x;
 myObj = [
 { Name: "Chilly2", Price: 30.00 },
 { Name: "aavinmilk500", Price: 26.00 },
 { Name: "aarokiyaMilk", Price: 30.00 }   
-];
+];*/
                 
                 for (var i = 0; i <= myObj.length - 1; i++) {
                     var str = "<tr class='alt'><td>" + myObj[i].Name + "</td><td><div id='Price_" + i + "'>" + Number(myObj[i].Price).toFixed(2) + "</div></td><td>" +
