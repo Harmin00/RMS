@@ -1,4 +1,6 @@
-﻿var myObj, x;
+﻿
+alert("File  called");
+var myObj, x;
 myObj = [
  { Name: "Chilly67", Price: 30.00 },
 { Name: "aavinmilk500", Price: 26.00 },
