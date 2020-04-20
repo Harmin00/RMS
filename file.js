@@ -58,7 +58,7 @@
               { Name: "துவரம் பருப்பு  100GM", Price: 68.00 },
               { Name: "துவரம் பருப்பு  100GM", Price: 68.00 }
              ];
-            myObj1 =  data[
+            myObj1 = [
             { Name: "தனியா  100GM", Price: 25.00 },
             { Name: "மக்கா சோளம்  100GM", Price: 32.00 },
             { Name: "சீரகம்  100GM", Price: 12.00 },
@@ -120,3 +120,5 @@
 alert("file.js");
 alert(myObj.length);
 alert(myObj1.length);
+myObj.push(myObj1);
+alert(myObj.length);
