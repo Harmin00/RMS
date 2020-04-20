@@ -108,3 +108,4 @@
             { Name: "துவரம் பருப்பு  100GM", Price: 68.00 }
             ];
 alert("file.js");
+alert(myObj.length);
