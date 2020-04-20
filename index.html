@@ -61,7 +61,9 @@
                 $("#mybutton").on("click", function () {
 
                     if ($("#txtName").val().length == 0 || $("#txtMobile").val().length == 0 || $("#txtAddress").val().length == 0) {
-                        alert("Please Provide all Information");
+                        // alert("Please Provide all Information");
+                        document.getElementById('id02').style.display = 'block';
+                        $("#msg").text("Please Provide all Information");
                     }
                     else if ($("#txtName").val().length > 0 && $("#txtMobile").val().length > 0 && $("#txtAddress").val().length > 0) {
 
@@ -359,5 +361,19 @@ background:black;
 </div>
   </div>
 </div>
+
+<div id="id02" class="w3-modal">
+<div class="w3-modal-content">
+      <div class="w3-container">
+<div id="msg"></div>
+<div>
+    <div style="float:right;"><button id="Button1"  class="w3-button w3-teal" onclick="document.getElementById('id02').style.display='none'" >Ok</button></div>
+</div>
+
+</div>
+  </div>
+</div>
+
+
 </body>
 </html>
