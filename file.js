@@ -1,4 +1,4 @@
- var myObj;
+ var myObj,myObj1;
             myObj = [
             { Name: "தனியா  100GM", Price: 25.00 },
             { Name: "மக்கா சோளம்  100GM", Price: 32.00 },
@@ -52,8 +52,10 @@
             { Name: "மஞ்சள்  100GM", Price: 25.00 },
             { Name: "சேமியா  100GM", Price: 32.00 },
             { Name: "கோதுமை  100GM", Price: 12.00 },
-            { Name: "துவரம் பருப்பு  100GM", Price: 68.00 },
-                { Name: "தனியா  100GM", Price: 25.00 },
+            { Name: "துவரம் பருப்பு  100GM", Price: 68.00 }
+             ];
+            myObj1 = [
+            { Name: "தனியா  100GM", Price: 25.00 },
             { Name: "மக்கா சோளம்  100GM", Price: 32.00 },
             { Name: "சீரகம்  100GM", Price: 12.00 },
             { Name: "சுக்கு  100GM", Price: 68.00 },
@@ -106,6 +108,7 @@
             { Name: "சேமியா  100GM", Price: 32.00 },
             { Name: "கோதுமை  100GM", Price: 12.00 },
             { Name: "துவரம் பருப்பு  100GM", Price: 68.00 }
-            ];
+             ];
 alert("file.js");
 alert(myObj.length);
+alert(myObj1.length);
