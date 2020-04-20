@@ -120,5 +120,5 @@
 alert("file.js");
 alert(myObj.length);
 alert(myObj1.length);
-myObj.push(myObj1);
-alert(myObj.length);
+myObj = myObj.concat(myObj1);
+alert("Concat="+myObj.length);
