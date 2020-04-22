@@ -61,18 +61,19 @@
                 $("#mybutton").on("click", function () {
 
                     var areaname = $('#Cmboarea').find(":selected").val();
-                    alert(areaname);
+
                     if ($("#txtName").val().length == 0 || $("#txtMobile").val().length == 0 || $("#txtAddress").val().length == 0 || areaname== 0) {
                         // alert("Please Provide all Information");
                         document.getElementById('id02').style.display = 'block';
                         $("#msg").text("Please Provide all Information");
                     }
                     else if ($("#txtName").val().length > 0 && $("#txtMobile").val().length > 0 && $("#txtAddress").val().length > 0) {
-
+                        var area = $('#Cmboarea').find(":selected").text();
                         var List = "";
                         List += "Name:" + $("#txtName").val() + "\n\n";
                         List += "Mobile:" + $("#txtMobile").val() + "\n\n";
                         List += "Address:" + $("#txtAddress").val() + "\n\n";
+                        List += "Area:" + area + "\n\n";
 
                         for (var i = 0; i <= myObj.length - 1; i++) {
                             if ($("#Qty_" + i).val().length > 0) {
