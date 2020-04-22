@@ -4,33 +4,33 @@
     <Head>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-      
- var myObj;
-            myObj = [
-{Name :"நாட்டுசர்க்கரை  ஆர்கானிக்   500GM" , Price :42.00,Category:35001},
-{Name :"நாட்டுசர்க்கரை  ஸாதா   500GM" , Price :33.00,Category:35001},
-{Name :"உலர்திராட்சை  250 GM" , Price :100.00,Category:35002},
-{Name :"ஓமம்  100 GM" , Price :25.00,Category:35002},
-{Name :"உலர்திராட்சை ஸாதா   200GM" , Price :50.00,Category:35002},
-{Name :"உலர்திராட்சை SPL  200 GM" , Price :80.00,Category:35002},
-{Name :"பாதாம் பருப்பு  200 GM" , Price :170.00,Category:35002},
-{Name :"பிஸ்தா பருப்பு  200 GM" , Price :250.00,Category:35002},
-{Name :"முந்திரி பருப்பு  200GM" , Price :104.00,Category:35002},
-{Name :"திரிகடுகம் TEA  50 GM" , Price :40.00,Category:35003},
-{Name :"சுக்கு மல்லி காபி  SPL  50 GM" , Price :10.00,Category:35003},
-{Name :"நல்லெண்ணெய்  500ML" , Price :148.00,Category:35004},
-{Name :"கடலை என்னை  500ML" , Price :148.00,Category:35004},
-{Name :"தேங்காய் எண்ணெய்  500ML" , Price :148.00,Category:35004},
-{Name :"வெப்ப என்னை  100ML" , Price :50.00,Category:35004},
-{Name :"ஆமணக்கு எண்ணெய்  100ML" , Price :50.00,Category:35004},
-{Name :"கடுகு எண்ணெய்  100 ML" , Price :75.00,Category:35004},
-{Name :"வேற்கடலை  1 KG" , Price :140.00,Category:35002},
-{Name :"மலை தேன்  250ML" , Price :145.00,Category:35005},
-{Name :"ஆப்பிள் வினிகர்  500ML" , Price :200.00,Category:35005},
-{Name :"ரோஸ்  வாட்டர்   100 ML" , Price :15.00,Category:35005},
-{Name :"முல்தானி மெட்டி   100 GM" , Price :20.00,Category:35005},
-{Name :"HONXEY NUTS I  300 GM" , Price :130.00,Category:35005}
-       ];
+
+    var myObj;
+    myObj = [
+{ Name: "நாட்டுசர்க்கரை  ஆர்கானிக்   500GM", Price: 42.00, Category: 35001 },
+{ Name: "நாட்டுசர்க்கரை  ஸாதா   500GM", Price: 33.00, Category: 35001 },
+{ Name: "உலர்திராட்சை  250 GM", Price: 100.00, Category: 35002 },
+{ Name: "ஓமம்  100 GM", Price: 25.00, Category: 35002 },
+{ Name: "உலர்திராட்சை ஸாதா   200GM", Price: 50.00, Category: 35002 },
+{ Name: "உலர்திராட்சை SPL  200 GM", Price: 80.00, Category: 35002 },
+{ Name: "பாதாம் பருப்பு  200 GM", Price: 170.00, Category: 35002 },
+{ Name: "பிஸ்தா பருப்பு  200 GM", Price: 250.00, Category: 35002 },
+{ Name: "முந்திரி பருப்பு  200GM", Price: 104.00, Category: 35002 },
+{ Name: "திரிகடுகம் TEA  50 GM", Price: 40.00, Category: 35003 },
+{ Name: "சுக்கு மல்லி காபி  SPL  50 GM", Price: 10.00, Category: 35003 },
+{ Name: "நல்லெண்ணெய்  500ML", Price: 148.00, Category: 35004 },
+{ Name: "கடலை என்னை  500ML", Price: 148.00, Category: 35004 },
+{ Name: "தேங்காய் எண்ணெய்  500ML", Price: 148.00, Category: 35004 },
+{ Name: "வெப்ப என்னை  100ML", Price: 50.00, Category: 35004 },
+{ Name: "ஆமணக்கு எண்ணெய்  100ML", Price: 50.00, Category: 35004 },
+{ Name: "கடுகு எண்ணெய்  100 ML", Price: 75.00, Category: 35004 },
+{ Name: "வேற்கடலை  1 KG", Price: 140.00, Category: 35002 },
+{ Name: "மலை தேன்  250ML", Price: 145.00, Category: 35005 },
+{ Name: "ஆப்பிள் வினிகர்  500ML", Price: 200.00, Category: 35005 },
+{ Name: "ரோஸ்  வாட்டர்   100 ML", Price: 15.00, Category: 35005 },
+{ Name: "முல்தானி மெட்டி   100 GM", Price: 20.00, Category: 35005 },
+{ Name: "HONXEY NUTS I  300 GM", Price: 130.00, Category: 35005 }
+    ];
         </script>
        
         <script>
@@ -60,7 +60,9 @@
 
                 $("#mybutton").on("click", function () {
 
-                    if ($("#txtName").val().length == 0 || $("#txtMobile").val().length == 0 || $("#txtAddress").val().length == 0) {
+                    var areaname = $('#Cmboarea').find(":selected").val();
+                    alert(areaname);
+                    if ($("#txtName").val().length == 0 || $("#txtMobile").val().length == 0 || $("#txtAddress").val().length == 0 || areaname== 0) {
                         // alert("Please Provide all Information");
                         document.getElementById('id02').style.display = 'block';
                         $("#msg").text("Please Provide all Information");
@@ -91,12 +93,36 @@
 
 
                 });
+
+
+                $('#Cmboarea').change(function () {
+                    var selectedVal = $('#Cmboarea option:selected').attr('value');
+                    if(selectedVal==1 && parseFloat($("#GrandTotal").text())<100)
+                    {
+                        //eastgate
+                        document.getElementById('id02').style.display = 'block';
+                        $("#msg").text("தயவு செய்து குறைந்தது ₹100 ஆர்டர் செய்யவும் நன்றி.");
+                    }
+                    else if (selectedVal == 2 && parseFloat($("#GrandTotal").text()) < 300) {
+                        //medical college
+                        document.getElementById('id02').style.display = 'block';
+                        $("#msg").text("தயவு செய்து குறைந்தது ₹300 ஆர்டர் செய்யவும் நன்றி.");
+                    }
+                    else if (selectedVal == 3 && parseFloat($("#GrandTotal").text()) < 250) {
+                        //arulanthan nagar
+                        document.getElementById('id02').style.display = 'block';
+                        $("#msg").text("தயவு செய்து குறைந்தது ₹250 ஆர்டர் செய்யவும் நன்றி.");
+                    }
+
+
+                });
+
             });
 
             function BuildCategory() {
                 var my_categories = [];
                 var cName = 0;
-                for (j = 0; j <= myObj.length-1; j++) {
+                for (j = 0; j <= myObj.length - 1; j++) {
                     if (cName != myObj[j].Category) {
                         cName = myObj[j].Category;
                         my_categories.push(myObj[j].Category);
@@ -130,10 +156,10 @@
                         inames = "பலசரக்கு";
                     }
 
-                var str = "<div  style='text-align:center;' onclick=ShowFilterTable('" + uniqueNames[i] + "'); class='w3-card-4'>" +
-                "<img src='https://raw.githubusercontent.com/Harmin00/RMS/master/" + images + "'>" +
-                "<div class='w3-container w3-center'>" +
-                 "<p>" + inames + "</p></div></div>";
+                    var str = "<div  style='text-align:center;' onclick=ShowFilterTable('" + uniqueNames[i] + "'); class='w3-card-4'>" +
+                    "<img src='https://raw.githubusercontent.com/Harmin00/RMS/master/" + images + "'>" +
+                    "<div class='w3-container w3-center'>" +
+                     "<p>" + inames + "</p></div></div>";
                     $('#Divcategory').append(str);
                 }
                 $("#maintable").hide();
@@ -198,7 +224,7 @@
             function GrandTotal() {
                 var total = 0;
                 for (var i = 0; i <= myObj.length - 1; i++) {
-                     if ($("#Total_" + i).text() != "") {
+                    if ($("#Total_" + i).text() != "") {
                         total = total + parseFloat($("#Total_" + i).text());
                         //alert(total) + "--i value "+ i;
                     }
@@ -225,11 +251,11 @@
                 $('#maintable').hide();
                 $('#Divcategory').show();
                 $('#Btnhome').hide();
-                
+
             }
             function BuildTable() {
-            
-                
+
+
                 for (var i = 0; i <= myObj.length - 1; i++) {
                     var str = "<tr class='alt'><td>" + myObj[i].Name + "</td><td><div id='Price_" + i + "'>" + Number(myObj[i].Price).toFixed(2) + "</div></td><td>" +
                              "<span class='plus button' id='sp_" + i + "' onclick='addproduct(this);' >+</span>" +
@@ -238,44 +264,8 @@
                              "</td><td><div id='Total_" + i + "'></div></td><td style='display:none;'>" + myObj[i].Category + "</td></tr>'";
                     $('#maintable').append(str);
                 }
-               
+                $("#Total_" + (myObj.length - 1)).text("0.00");
             }
-
-            //function PlaceOrder() {
-            //    if ($("#txtName").val().length == 0 || $("#txtMobile").val().length == 0 || $("#txtAddress").val().length == 0) {
-            //        alert("Please Provide all Information");
-            //    }
-            //    else {
-
-            //        var List = "";
-            //        List += "Name:" + $("#txtName").val() + "\n";
-            //        List += "Mobile:" + $("#txtMobile").val() + "\n";
-            //        List += "Address:" + $("#txtAddress").val() + "\n";
-
-            //        for (var i = 0; i <= myObj.length - 1; i++) {
-            //            if ($("#Qty_" + i).val().length > 0) {
-            //                List += myObj[i].Name + "  " + $("#Price_" + i).text() + "  " + $("#Qty_" + i).val() + " " + $("#Total_" + i).text() + "\n";
-            //            }
-            //        }
-            //        List += "GrandTotal" + $("#GrandTotal").text();
-            //        sendmessage(List);
-
-            //    }
-
-
-            //}
-
-            //function sendmessage(message) {
-            //    alert(isMobile.any());
-            //            if (isMobile.any()) {
-            //                var whatsapp_url = "https://api.whatsapp.com/send?phone=917358862009&text=" + message;
-            //                window.location.href = whatsapp_url;
-            //            }
-            //            else {
-            //                alert("This option is only available on mobile devices.");
-            //            }
-            //}
-
         </script>
            <style>
 .button {
@@ -348,11 +338,17 @@ background:black;
       <div class="w3-container">
       <span onclick="document.getElementById('id01').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
-<label>Name</label>
+<label><b>பெயர்</b></label>
 <input id="txtName" class="w3-input" type="text">
-<label>MobileNumber</label>
+<label><b>மொபைல் நம்பர்</b></label>
 <input id="txtMobile" class="w3-input" type="text">
-<label>Address</label>
+<select class="w3-select" name="option" id="Cmboarea">
+  <option value="0" disabled selected>உங்கள் ஏரியா</option>
+  <option value="1">கீழவாசல்</option>
+  <option value="2">மெடிக்கல் காலேஜ் </option>
+  <option value="3">அருளன்தான் நகர்</option>
+</select>
+<label><b>முகவரி</b></label>
 <input id="txtAddress" class="w3-input" type="text">
 <div>
     <div style="float:right;"><button id="mybutton"  class="w3-button w3-teal">Proceed</button></div>
@@ -367,7 +363,7 @@ background:black;
       <div class="w3-container">
 <div id="msg"></div>
 <div>
-    <div style="float:right;"><button id="Button1"  class="w3-button w3-teal" onclick="document.getElementById('id02').style.display='none'" >Ok</button></div>
+    <div style="float:right;"><button id="Button1"  class="w3-button w3-red" onclick="document.getElementById('id02').style.display='none'" >Ok</button></div>
 </div>
 
 </div>
