@@ -62,7 +62,7 @@
 
                     var areaname = $('#Cmboarea').find(":selected").val();
 
-                    if ($("#txtName").val().length == 0 || $("#txtMobile").val().length == 0 || $("#txtAddress").val().length == 0 || areaname== 0) {
+                    if ($("#txtName").val().length == 0 || $("#txtMobile").val().length == 0 || $("#txtAddress").val().length == 0 || areaname == 0) {
                         // alert("Please Provide all Information");
                         document.getElementById('id02').style.display = 'block';
                         $("#msg").text("Please Provide all Information");
@@ -98,8 +98,7 @@
 
                 $('#Cmboarea').change(function () {
                     var selectedVal = $('#Cmboarea option:selected').attr('value');
-                    if(selectedVal==1 && parseFloat($("#GrandTotal").text())<100)
-                    {
+                    if (selectedVal == 1 && parseFloat($("#GrandTotal").text()) < 100) {
                         //eastgate
                         document.getElementById('id02').style.display = 'block';
                         $("#msg").text("தயவு செய்து குறைந்தது ₹100 ஆர்டர் செய்யவும் நன்றி.");
@@ -258,7 +257,7 @@
 
 
                 for (var i = 0; i <= myObj.length - 1; i++) {
-                    var str = "<tr class='alt'><td>" + myObj[i].Name + "</td><td><div id='Price_" + i + "'>" + Number(myObj[i].Price).toFixed(2) + "</div></td><td>" +
+                    var str = "<tr  style='color:#357ef2;'class='alt'><td>" + myObj[i].Name + "</td><td><div id='Price_" + i + "'>" + Number(myObj[i].Price).toFixed(2) + "</div></td><td>" +
                              "<span class='plus button' id='sp_" + i + "' onclick='addproduct(this);' >+</span>" +
                              "<input class='qtybox' type='text' name='qty' id='Qty_" + i + "' maxlength='2' readonly/>" +
                              "<span class='min button' id='ssp_" + i + "'  onclick='minusproduct(this);'>-</span>" +
@@ -269,7 +268,7 @@
         </script>
            <style>
 .button {
- padding:5px; cursor:pointer; background:grey; color:white; width:25px; height:25px; text-align:center; display:inline-block;
+ padding:5px; cursor:pointer; background:#4c8aed; color:white; width:25px; height:25px; text-align:center; display:inline-block;
 }
         .qtybox{
             width:20px;
@@ -292,13 +291,15 @@ background:black;
     </Head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-light-blue.css">
 <body>
 
-<div class="w3-container w3-teal">
-<img src="https://raw.githubusercontent.com/Harmin00/RMS/master/rmnstore.png" />
+<div class="w3-container w3-theme-d4">
+<h2>𝓡𝓜𝓝 𝓢𝓽𝓸𝓻𝓮𝓼</h2>
+    <h3>𝓣𝓱𝓪𝓷𝓳𝓪𝓿𝓾𝓻</h3>
+    <h3>𝓜𝓸𝓫𝓲𝓵𝓮:917358862009</h3>
 </div>
-  <div class="w3-panel w3-pale-green w3-bottombar w3-border-green w3-border w3-auto">
+  <div class="w3-panel  w3-theme-d4 w3-bottombar w3-border-green w3-border w3-auto">
     <p>Free Home Delivery 9.00 AM - 8.00 PM</p>
   </div>
     <img src="https://raw.githubusercontent.com/Harmin00/RMS/master/banner.png" />
@@ -322,10 +323,10 @@ background:black;
 
 </div>
 </div>
-  <button id="Btnhome"  onclick="Home();" class="w3-button w3-black"  style="float:left;" >Back</button>  
- <button  onclick="OrderNow();" class="w3-button w3-black"  style="float:right;" >OrderNow</button>
+  <button id="Btnhome"  onclick="Home();" class="w3-button w3-blue"  style="float:left;" >Back</button>  
+ <button  onclick="OrderNow();" class="w3-button w3-blue"  style="float:right;" >OrderNow</button>
       <img src="https://raw.githubusercontent.com/Harmin00/RMS/master/banner3.png" />    
-    <div class="w3-container w3-teal">
+    <div class="w3-container w3-theme-d4">
         <div class="w3-row">
   <div class="w3-col s6  w3-center"><h2><p>Total:</p></h2></div>
   <div class="w3-col s6  w3-center"><h2><p id="GrandTotal">00.00</p></h2></div>
@@ -351,7 +352,7 @@ background:black;
 <label><b>முகவரி</b></label>
 <input id="txtAddress" class="w3-input" type="text">
 <div>
-    <div style="float:right;"><button id="mybutton"  class="w3-button w3-teal">Proceed</button></div>
+    <div style="float:right;"><button id="mybutton"  class="w3-button w3-blue">Proceed</button></div>
 </div>
 
 </div>
