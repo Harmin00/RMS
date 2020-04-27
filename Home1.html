@@ -1,20 +1,46 @@
 
+
+
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+   
    
     
-    <title>rmn</title>
     
-
+    <title></title>
     
+ 
+    
+    <style>
+      .loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+    </style>
     
   </head>
   <body style="height:100vh;margin: 0;">
-     
-   <iframe src="https://script.google.com/macros/s/AKfycbxmVzqIDq8pxQbjrygqCwyjbTpfHnd9xgkXryt9rQq53Hz9KGYv/exec" frameborder="0" style="overflow:hidden;height:100%;width:100%"></iframe>
+ 
+    <div class="loader" style="width: 150px;height: 150px;position: absolute;top: 32%;left: 32%" role="status">
+  
+</div>
+   
+   <iframe onload="pageloadingtime();" src="https://script.google.com/macros/s/AKfycbxmVzqIDq8pxQbjrygqCwyjbTpfHnd9xgkXryt9rQq53Hz9KGYv/exec" frameborder="0" style="overflow:hidden;height:100%;width:100%"></iframe>
 
     </body>
   
